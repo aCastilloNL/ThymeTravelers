@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&display=swap');
+
+/* =============
+   Global styles
+   ============= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    /* Primary colour */
+    --primary-colour: #0c5e3c;
+
+    /* Secundary colour */
+    --secundary-colour: #f1f1f1;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+}
+

@@ -1,24 +1,45 @@
-import Navbar from "./../navbar/Navbar";
-import Footer from "./../footer/Footer";
-import { Context } from "./../../context/Context";
-import { ApiContext } from "../../context/ApiContext";
+import React, { Component } from "react";
 
-/* WHEN YOU NEED DATA OF API CALL FOR api.something WHEN YOU NEED DATA FROM CONTEXT CALL value.something */
 
-const PageThree = () => (
-  <Context.Consumer>
-    {(value) => (
-      <ApiContext.Consumer>
-        {(api) => (
-          <>
-            <Navbar />
-            <>MY CONTENT</>
-            <Footer />
-          </>
-        )}
-      </ApiContext.Consumer>
-    )}
-  </Context.Consumer>
-);
+class PageThree extends Component{
+  state = {
+    notEdible : [],
+  }
+  // "https://trefle.io/api/v1/plants?token=lFM81UTKUliWbUM-9QDM0m3X8jPYbyFlAQrIQAFcRZA"
+componentDidMount(){
+  fetch("https://trefle.io/api/v1/plants?token=lFM81UTKUliWbUM-9QDM0m3X8jPYbyFlAQrIQAFcRZA&")
+  .then(res => res.json())
+  .then(data => 
+    this.setState({
+      notEdible: data.data
+    })
+    )
+}
 
-export default PageThree;
+render(){
+  return(
+    <div>
+      <h1>Not Edible</h1>
+      {
+      this.state.notEdible.map((names, index) =>
+      <div key={index}>
+        <h2>{names.common_name}</h2>
+        <img src={names.image_url} alt={names.scientific_name}></img>
+      </div>
+      )}
+    </div>
+  )
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+export default PageThree
