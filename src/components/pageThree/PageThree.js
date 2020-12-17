@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-
+import Navbar from "./../navbar/Navbar";
+import Footer from "./../footer/Footer";
+import "./PageThree.css"
 
 class PageThree extends Component{
   state = {
@@ -19,14 +21,16 @@ componentDidMount(){
 render(){
   return(
     <div>
-      <h1>Not Edible</h1>
+      <Navbar />
+      <h1 className="titleNot">Not Edible</h1>
       {
       this.state.notEdible.map((names, index) =>
       <div key={index}>
-        <h2>{names.common_name}</h2>
-        <img src={names.image_url} alt={names.scientific_name}></img>
+        <h2 className="nameNot">{names.common_name}</h2>
+        <img className="imgNot" src={names.image_url} alt={names.scientific_name}></img>
       </div>
       )}
+      <Footer />
     </div>
   )
 }
