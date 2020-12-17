@@ -1,7 +1,8 @@
-// import Navbar from "./../navbar/Navbar";
-// import Footer from "./../footer/Footer";
+import Navbar from "./../navbar/Navbar";
+import Footer from "./../footer/Footer";
 import React, { Component } from 'react';
 import './PageOne.css'
+
 
 /* WHEN YOU NEED DATA OF API CALL FOR api.something WHEN YOU NEED DATA FROM CONTEXT CALL value.something */
 
@@ -26,7 +27,7 @@ class PageOne extends Component {
 
   render() {
     return (
-      <div>
+      <div><Navbar />
         <h1>Edible Plants</h1>
         <div className='flexContainer'>
           {
@@ -38,6 +39,7 @@ class PageOne extends Component {
             )
           }
         </div>
+        <Footer />
       </div>
     )
   }
